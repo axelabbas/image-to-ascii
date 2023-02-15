@@ -32,7 +32,7 @@ def PILimgToAsciiText(image):
     return {"ascii":ascii_img, "h": greyscale_image.height, "w": greyscale_image.width}
 
 def AsciiTextToImg(ascii, h, w, bg="black", textRgb=(0, 255, 0)):
-    scale = 100
+    scale = 50
     img = Image.new("RGB", (h * scale, w * scale), color=bg)
     d = ImageDraw.Draw(img)
     fnt = ImageFont.truetype("C:\\Users\\ns\\Downloads\\Compressed\\Courier_Prime\\CourierPrime-Regular.ttf", scale)
