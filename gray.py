@@ -10,7 +10,7 @@ def resize(image, new_width = 100):
 def to_greyscale(image):
     return image.convert("L")
 
-ASCII_CHARS = list("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^    ")
+ASCII_CHARS = list("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^   ")
 ASCII_CHARS.reverse()
 
 def pixel_to_ascii(image):
@@ -75,4 +75,4 @@ def videoToAsciiVideo(inputPath, outputPath):
     
     cv2.destroyAllWindows()
     video.release()
-videoToAsciiVideo("inputs/killua.mp4","outputs/22.mp4")
+videoToAsciiVideo("inputs/killua.mp4","outputs/killua.mp4")
