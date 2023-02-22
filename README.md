@@ -1,5 +1,5 @@
 # **Video to ASCII Converter** 
-A python tool that allows you to convert a video into an ASCII version of the same video. The output of the program is an mp4 video.
+A python tool that allows you to convert a video into an ASCII version of the same video. The output of the program is an mp4 format video.
 # **Requirements** 
 - Pillow
 - OpenCV
@@ -8,14 +8,20 @@ A python tool that allows you to convert a video into an ASCII version of the sa
 # **Installation**
 - Clone this repository to your local machine.
 - Install the required packages using pip install -r requirements.txt.
-- Run the program using python video_to_ascii.py.
+- Run the program using 
+```python videToAscii.py```.
 
 # **Usage**
-The program takes two arguments: the path to the input video file and the path to the output file. By default, the output file is a text file with the same name as the input video file but with a .txt extension.
+First save your input video in the inputs folder, After that run the python code, you'll be asked to enter the input video's name, enter the video name only (***Not inputs/filename***), After that enter the desired output file name, After letting the program run, the ascii video will be saved at ***outputs/{filename}***.
 
+***this assumes you're not looking to customize your output***
+
+# **Customize**
+Allows you to customize the output video's text color and background color.
+After getting asked if you want to customize the output, enter Y, you'll be asked to enter a BG color (input is color name only. i.e: white), and then the text's color (input is the color's rgb values i.e: 255,255,255)
 
 # **How it works**
-The program works by reading each frame of the input video and converting it into a grayscale image. The grayscale image is then resized to a smaller size to reduce the number of characters in the output text. Each pixel in the resized image is then converted into an ASCII character based on its brightness value. Finally, the ASCII characters are concatenated into a single string and written to the output file.
+The program works by reading each frame of the input video and converting it into a grayscale image. The grayscale image is then resized to a smaller size. Each pixel in the resized frame is then converted into an ASCII character based on its brightness value. Finally, the ASCII characters are concatenated into a single string, after that each character in the string are written onto a new frame, Making it an ascii version of the original frame, and last all frames are added up to make a new video.
 
 # **Example**
 Here is an example of what the result might look like:
