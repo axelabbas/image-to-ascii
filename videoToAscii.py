@@ -31,11 +31,11 @@ def PILimgToAsciiText(image):
         ascii_img += ascii_str[i:i+img_width] + "\n"
     return {"ascii":ascii_img, "h": greyscale_image.height, "w": greyscale_image.width}
 
-def AsciiTextToImg(ascii, h, w, bg="black", textRgb=(255,255,255)):
+def AsciiTextToImg(ascii, h, w, bg, textRgb):
     scale = 50
     img = Image.new("RGB", (h * scale, w * scale), color=bg)
     d = ImageDraw.Draw(img)
-    fnt = ImageFont.truetype("C:\\Users\\ns\\Downloads\\Compressed\\Courier_Prime\\CourierPrime-Regular.ttf", scale)
+    fnt = ImageFont.truetype("CourierPrime-Regular.ttf", scale)
     rows = ascii.split("\n")
     for indexRows, row in enumerate(rows):
         for indexCols, col in enumerate(row):
@@ -56,14 +56,14 @@ def vidToFrames(video):
     capture.release()
     return frames
 
-def videoToAsciiVideo(inputPath, outputPath):
+def videoToAsciiVideo(inputPath, outputPath, bg="black", textRgb=(0,255,255)):
     frames = vidToFrames(inputPath)
     asciiImages = []
     for index, frame in enumerate(frames):
         PilImg = Image.fromarray(frame)
         Ascii = PILimgToAsciiText(PilImg)
         AsciiText, w, h = Ascii["ascii"],Ascii["w"],Ascii["h"]
-        AsciiImg = AsciiTextToImg(AsciiText, w, h)
+        AsciiImg = AsciiTextToImg(AsciiText, w, h ,bg, textRgb)
         opencvImage = cv2.cvtColor(numpy.array(AsciiImg), cv2.COLOR_RGB2BGR)
         asciiImages.append(opencvImage)
     
@@ -75,4 +75,16 @@ def videoToAsciiVideo(inputPath, outputPath):
     
     cv2.destroyAllWindows()
     video.release()
-videoToAsciiVideo("inputs/killua.mp4","outputs/killua.mp4")
+inputName = input("Input video name: ")
+outputName = input("Output video name: ")
+customize = input("Do you want to customize the output (y/n): ").lower()
+if customize == "y":
+    bg = input("Background color ( Color name, i.e black ) : ").lower()
+    strTextColor = input("Text color ( Rgb values seperated by (,) i.e 255,255,255 ) : ").lower()
+    textColor = tuple(int(x) for x in strTextColor.split(","))
+    print(textColor)
+
+    videoToAsciiVideo(f"inputs/{inputName}",f"outputs/{outputName}", bg, textColor)
+
+else:
+    videoToAsciiVideo(f"inputs/{inputName}",f"outputs/{outputName}")
