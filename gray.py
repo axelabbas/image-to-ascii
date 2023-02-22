@@ -31,7 +31,7 @@ def PILimgToAsciiText(image):
         ascii_img += ascii_str[i:i+img_width] + "\n"
     return {"ascii":ascii_img, "h": greyscale_image.height, "w": greyscale_image.width}
 
-def AsciiTextToImg(ascii, h, w, bg="black", textRgb=(0, 255, 0)):
+def AsciiTextToImg(ascii, h, w, bg="black", textRgb=(255,255,255)):
     scale = 50
     img = Image.new("RGB", (h * scale, w * scale), color=bg)
     d = ImageDraw.Draw(img)
