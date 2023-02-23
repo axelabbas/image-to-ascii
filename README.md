@@ -37,3 +37,4 @@ Here is an example of what the result might look like:
 " controls="controls" style="max-width: 730px;">
 </video>
 
+(you can check input/output example in the inputs and outputs folder if video's aren't visible for you)
