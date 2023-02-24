@@ -56,7 +56,7 @@ def vidToFrames(video):
     capture.release()
     return frames
 
-def videoToAsciiVideo(inputPath, outputPath, bg="black", textRgb=(0,255,255)):
+def videoToAsciiVideo(inputPath, outputPath, bg="black", textRgb=(255,255,255)):
     frames = vidToFrames(inputPath)
     asciiImages = []
     for index, frame in enumerate(frames):
