@@ -7,7 +7,7 @@ A python tool that allows you to convert a video into an ASCII version of the sa
 
 # **Installation**
 - Clone this repository to your local machine.
-- Install the required packages using pip install -r requirements.txt.
+- Install the required packages using ```pip install -r requirements.txt```.
 - Run the program using 
 ```python videToAscii.py```.
 
@@ -37,3 +37,4 @@ Here is an example of what the result might look like:
 " controls="controls" style="max-width: 730px;">
 </video>
 
+(you can check input/output example in the inputs and outputs folder if video's aren't visible for you)
